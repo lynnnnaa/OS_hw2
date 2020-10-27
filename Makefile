@@ -13,7 +13,7 @@ getDirStats.o: getDirStats.h digester.h
 $(OBJECTS): Makefile 
 
 .cpp.o:
-	$(CPPC) $(CPPFLAGS) $< -o $@
+	<\t>$(CPPC) $(CPPFLAGS) $< -o $@
 
 $(TARGET): $(OBJECTS)
 	$(CPPC) -o $@ $(OBJECTS) $(LDLIBS)
