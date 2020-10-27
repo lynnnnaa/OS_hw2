@@ -37,8 +37,6 @@ getDirStats(const std::string & dir_name, Results & res)
   std::vector<std::string> most_common_types; // 5 most common file types, as reported by the file utility,
   std::vector<std::vector<std::string>> duplicate_files; // list of groups of duplicate files (top 5)
 
-
-
   std::vector<std::string> stack;
   stack.push_back(dir_name.c_str());
   while(!stack.empty()){
@@ -50,19 +48,26 @@ getDirStats(const std::string & dir_name, Results & res)
     DIR * dir = opendir(dirname.c_str());
     if(dir){
       while(1){
+        n_dirs =+ 1;
         dirent * de = readdir(dir);
         if (!de) break;
         std::string name = de -> d_name;
-        // n_files =+ 1;
+
         if(name == "." || name == "..") continue;
         std::string path = dirname + "/" + de -> d_name;
+
+        n_files =+ 1;
+        all_files_size =+ de -> d_name.size();
+        if(de -> d_name.size() > largest_file_size){
+          largest_file_path = path;
+          largest_file_size = de -> d_name.size();
+        }
+
         stack.push_back(path);
       }
       closedir(dir);
     }
   }
-
-
-
+return true;
 
 }
