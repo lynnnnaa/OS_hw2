@@ -38,7 +38,7 @@ def get_dir_stats(dname):
         n_dirs += len(dirs)
         n_files += len(files)
 
-    print(f"Largest file:      {largest_file}")
+    print(f" file:      {largest_file}")
     print(f"Largest file size: {largest_file_size}")
     print(f"Number of files:   {n_files}")
     print(f"Number of dirs:    {n_dirs}")
