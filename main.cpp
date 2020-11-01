@@ -35,8 +35,9 @@ int main( int argc, char ** argv)
     printf("Could not get dir stats.\n");
   }
   else {
+    long largest_file_size = 1;
     printf("--------------------------------------------------------------\n");
-    printf(" file:      %s\n", res.largest_file_path.c_str());
+    printf("Largest file:      %s\n", res.largest_file_path.c_str());
     printf("Largest file size: %ld\n", res.largest_file_size);
     printf("Number of files:   %ld\n", res.n_files);
     printf("Number of dirs:    %ld\n", res.n_dirs);

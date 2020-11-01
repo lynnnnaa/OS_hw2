@@ -1,7 +1,7 @@
 SOURCES = main.cpp digester.cpp getDirStats.cpp
 CPPC = g++
-CPPFLAGS = -c -Wall -O2
-LDLIBS = -lcrypto
+CPPFLAGS = -std=c++11 -c -Wall -O2
+LDLIBS = -I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib -lssl -lcrypto
 OBJECTS = $(SOURCES:.cpp=.o)
 TARGET = dirstats
 
