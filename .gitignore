@@ -1,3 +1,5 @@
 Makefile
 .DS_Store
 test1/.DS_Store
+test1/**/.DS_Store
+
